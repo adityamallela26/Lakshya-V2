@@ -2,6 +2,8 @@
   "name": "lakshya",
   "private": true,
   "version": "1.0.0",
+  "description": "Lakshya - a personal mission control system and student productivity app",
+  "author": "Lakshya",
   "type": "module",
   "main": "electron/main.cjs",
   "scripts": {
