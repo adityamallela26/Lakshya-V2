@@ -1,0 +1,6 @@
+{
+  "name": "Lakshya",
+  "description": "A premium, high-fidelity personal mission control system and student productivity operating system designed for clarity, calmness, and focus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

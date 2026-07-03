@@ -1,0 +1,70 @@
+{
+  "name": "lakshya",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "tsx server.ts",
+    "build": "vite build && esbuild server.ts --bundle --platform=node --format=cjs --packages=external --sourcemap --outfile=dist-server/server.cjs",
+    "start": "node dist-server/server.cjs",
+    "preview": "vite preview",
+    "clean": "rm -rf dist dist-server android",
+    "lint": "tsc --noEmit",
+
+    "build:app": "vite build",
+    "electron:dev": "npm run build:app && electron .",
+    "electron:build:win": "npm run build:app && electron-builder --win",
+    "cap:add:android": "npm run build:app && npx cap add android",
+    "cap:sync": "npm run build:app && npx cap sync android",
+    "cap:open:android": "npx cap open android"
+  },
+  "build": {
+    "appId": "com.lakshya.app",
+    "productName": "Lakshya",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "electron/icon.ico"
+    }
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@google/genai": "^2.4.0",
+    "@tailwindcss/vite": "^4.1.14",
+    "@vitejs/plugin-react": "^5.0.4",
+    "dagre": "^0.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "html-to-image": "^1.11.13",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "reactflow": "^11.11.4",
+    "recharts": "^3.8.1",
+    "vite": "^6.2.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.0.0",
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0",
+    "@types/dagre": "^0.7.54",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "autoprefixer": "^10.4.21",
+    "esbuild": "^0.25.0",
+    "tailwindcss": "^4.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.3"
+  }
+}
